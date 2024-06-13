@@ -1,0 +1,27 @@
+{
+  "name": "crunchycrawler",
+  "version": "1.0.0",
+  "description": "A js web-crawler for internal link extraction",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crunc2h/CrunchyCrawler.git"
+  },
+  "author": "Crunc2h",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Crunc2h/CrunchyCrawler/issues"
+  },
+  "homepage": "https://github.com/Crunc2h/CrunchyCrawler#readme",
+  "jest": {
+    "transform": {}
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
