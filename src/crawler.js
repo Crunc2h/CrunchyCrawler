@@ -1,3 +1,5 @@
+import { JSDOM } from 'jsdom'
+
 function normalizeURL(url) {
     if (url === undefined) {
         throw new ReferenceError("Undefined URL passed to the normalizer!");
@@ -18,4 +20,22 @@ function normalizeURL(url) {
     return split_url_str[1];
 }
 
-export { normalizeURL };
+function getURLsFromHTML(htmlBody) {
+    if (htmlBody === undefined) {
+        throw new ReferenceError("Undefined HTML body passed to the HTML parser!");
+    } else if (htmlBody === null) {
+        throw new ReferenceError("Null HTML body passed to the HTML parser!");
+    }
+    
+    const dom = new JSDOM(htmlBody);
+    const anchorList = dom.window.document.querySelectorAll("a");
+    
+    let URLs = [];
+    for (let anchor of anchorList) {
+        URLs.push(anchor.href);
+    };
+
+    return URLs;
+}
+
+export { normalizeURL, getURLsFromHTML };
